@@ -11,11 +11,11 @@ function App() {
           <img src={bike} className='bike-img' alt='bike emoji'></img>
         </div>
         <div className='main'>
-
+          <Map />
         </div>
         <div className='footer'>
           <h1>Created during TOHacks 2021</h1>
-          <a className='link' href='https://github.com/vince1444/TOHacks_TeamEpicGamers'>github</a>
+          <a className='link' href='https://github.com/vince1444/TOHacks_TeamEpicGamers' target='_blank' rel='noopener noreferrer'>github</a>
         </div>
       </div>
     </div>
