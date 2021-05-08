@@ -1,4 +1,4 @@
 # Team Members
-Vincent Corradett, Brian Campana, Avery Romano, Evelyn Smay
+Vincent Corradett, Brain Campana, Avery Romeonaono, Evelyern Mayers
 # About us
 We are epic gamers
