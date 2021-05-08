@@ -1,10 +1,10 @@
-import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import React, { useState } from 'react'
+import { InfoWindow, GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 
 const containerStyle = {
   width: '70%',
-  height: '95%',
-  border: '5px solid white'
+  height: '99%',
+  border: '5px solid pink'
 };
 
 const center = {
@@ -12,19 +12,39 @@ const center = {
   lng: -74.0060
 };
 
+
 function Map() {
-  return (
-    <LoadScript
-      googleMapsApiKey='AIzaSyB7t1el6JYtCUDBzooKK4RTTfnSaSHF_1M'
-    >
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={13}
-      >
-      </GoogleMap>
-    </LoadScript>
-  )
+    const [position, setPosition] = useState(null);
+    const positionList = [{ lat: 40.69839895, lng: -73.98068914 },
+                          { lat: 40.73935542, lng: -73.99931783 }]
+    return (
+        <LoadScript
+            googleMapsApiKey=''
+        >
+            <GoogleMap
+                id='bikeshare-map'
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={13}
+            > 
+                {
+                    <>
+                        {positionList.map((position, ind) => {
+                            return <Marker id={ind} position={position} onClick={() => setPosition(position)} />
+                        })}
+                        {position && (
+                            <InfoWindow onCloseClick={() => setPosition(null)} position={position}>
+                                <div>
+                                    <h1>{position.lat}</h1>
+                                </div>
+                            </InfoWindow>
+                        )}
+                    </>
+                }
+                <></>
+            </GoogleMap>
+        </LoadScript>
+    )
 }
 
-export default React.memo(Map)
+export default React.memo(Map);
